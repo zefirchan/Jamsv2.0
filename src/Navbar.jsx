@@ -20,6 +20,10 @@ export function Navbar(){
                 <Link to="/" className="navbar-logo" >
                     <img src={logo} alt="logo"/>
                 </Link>
+                
+            </div>
+            <div>
+            <AuthDetails />
             </div>
         </nav>
         </>
