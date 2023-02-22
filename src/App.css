@@ -11,6 +11,8 @@
 }
 
 .auth-form-container, .login-form, .register-form, .forgotpass-form {
+  
+  
   display: flex;
   flex-direction: column;
   

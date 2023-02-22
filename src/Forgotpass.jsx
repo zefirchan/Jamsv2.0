@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { Link } from "react-router-dom";
 
 
 {/* */}
@@ -21,8 +22,9 @@ export const Forgotpass = (props) =>{
                 <button type="submit">Recover Password</button>
             </form>
             {/* switch to login form*/}
-            <button className="link-btn" onClick={() =>props.onFormSwitch('login')}>login</button>
-            
+            <Link to="/">
+                <button className="link-btn" >login</button>
+            </Link>      
         </div>
     );
 }

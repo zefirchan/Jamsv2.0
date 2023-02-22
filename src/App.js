@@ -1,45 +1,67 @@
 import { createBrowserRouter, createRoutesFromElements, Route, Link, Outlet, RouterProvider } from 'react-router-dom';
-
+import { createRoot } from "react-dom/client";
 
 import './App.css';
 import './NavbarStyles.css'
 import { Login } from './Login';
-import {Forgotpass} from './Forgotpass';
 import { Register } from './Register';
-import {AuthDetails } from './AuthDetails';
 import {Navbar} from './Navbar';
 import {Root} from './root';
+import { Forgotpass } from './Forgotpass';
 
 
 
 function App() {
 
-  const router = createBrowserRouter(
-    createRoutesFromElements(
-      <Route path="/" element={<Root/>}>
-        <Route  index path="/Login" element={<Login />} />
-        <Route  path="/Register"element={<Register />} />
-      </Route>
-    )
 
-  )
+
+  //Create routes for screen navigation
+const router = createBrowserRouter([
+  {
+    element: <AppLayout />,
+    children: [
+      {
+    path: "register",
+    element: <Register />,
+  },
+  {
+    path: "/",
+    element: <Login />,
+  },
+  {
+    path: "forgotpass",
+    element: <Forgotpass />
+  }
+    ]
+  },
+ 
   
   
-  {/*toggle between login and forgot password forms */}
+]);
+
+createRoot(document.getElementById("root")).render(
+  <RouterProvider router={router} />
+);
+  
+  
   return (
-    <div className="App">
       
       <div className="App">
-          <RouterProvider router={router} />
+       <RouterProvider router={router} />
       </div>
 
-      
-    
-
-      
-    </div>
   );
 }
-
+const AppLayout= () => {
+  return (
+    <>
+      <div className="App">
+      <Navbar />
+      <Outlet />
+      </div>
+      
+    </>
+  )
+}
 
 export default App;

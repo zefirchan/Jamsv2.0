@@ -3,6 +3,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import React, {useState} from "react";
 import { auth } from "./firebase";
 import MustContainElement from "./MustContainElement";
+import { Link } from "react-router-dom";
 
 
  {/* Administrator screen for registering user*/}
@@ -94,7 +95,10 @@ export const Register = (props) =>{
                 
                 <label htmlFor="userPassword">password</label>
                 <input value={userPassword} onChange={(e) => setUserPassword(e.target.value)}type="password" placeholder="*******" id="password" name="password" onKeyUp={validatePassword}/>
-                <button type="submit">Register Account</button>
+                <Link to="/">
+                    <button type="submit">Register Account</button>
+                </Link>
+                
             </form>
             <div className="must-container cfb">
         
