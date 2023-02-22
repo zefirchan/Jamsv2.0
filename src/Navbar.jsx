@@ -1,23 +1,25 @@
+import React, {useState} from "react";
 import logo from './img/JAMS_313X313.png'
 import {AuthDetails } from './AuthDetails';
+import {Link} from "react-router-dom"
+import {NavLink} from "react-router-dom"
+
+import "./NavbarStyles.css"
 
 
 //Main navigation menu
 export function Navbar(){
+    const [click, setClick] = useState(false)
+    const handleClock = () => setClick(!click)
+    
+
     return (
         <>
-        <nav>
-            <img src={logo} alt="logo" />
-            <div>
-                <ul id="navbar">
-                    
-                    <li><a className="active" href="index.html">Home</a></li>
-                    <li><a href="Registration.js">Register User</a></li>
-                    <li><a href="index.html">Screen 2</a></li>
-                    <li><a href="index.html">Screen 3</a></li>
-                    <li><a href="index.html">Screen 4</a></li>
-                    <li>< AuthDetails/></li>
-                </ul>
+        <nav className="navbar">
+            <div className="navbar-container container">
+                <Link to="/" className="navbar-logo" >
+                    <img src={logo} alt="logo"/>
+                </Link>
             </div>
         </nav>
         </>

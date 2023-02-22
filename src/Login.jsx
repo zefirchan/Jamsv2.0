@@ -1,6 +1,9 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase";
 import React, {useState} from "react";
+import {Forgotpass} from './Forgotpass';
+import {Link} from "react-router-dom"
+
 
 
 
@@ -28,7 +31,7 @@ export const Login = (props) =>{
     }
     //login form
     return(
-
+        
         
         <div className="auth-form-container">
             <form className="login-form" onSubmit={logIn}>
@@ -40,11 +43,16 @@ export const Login = (props) =>{
                 <button type="submit">Log In</button>
             </form>
             {/* switch to password form*/}
-            <button className="link-btn" onClick={() =>props.onFormSwitch('forgotpass')}>Forgot password</button>
-
+            <Link to="/forgotpass">
+            <button className="link-btn" >Forgot password</button>
+            </Link>
+            <Link to="/register">
+                <button className="link-btn" >Register New Account</button>
+            </Link>
             
             
         </div>
+        
     );
 }
 
