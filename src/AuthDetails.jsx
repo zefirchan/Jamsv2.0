@@ -19,7 +19,8 @@ export const AuthDetails = () => {
         return () => {
             listen();
         }
-
+    
+    
 
     }, []);
 
