@@ -1,11 +1,13 @@
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { auth } from './firebase';
+import { useNavigate } from 'react-router-dom';
 
 //check whether user is signed in or not and which user it is
 
 export const AuthDetails = () => {
     const [authUser, setAuthuser] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const listen = onAuthStateChanged(auth, (user) => {
@@ -27,6 +29,7 @@ export const AuthDetails = () => {
         const userSignOut = () => {
             signOut(auth).then(() => {
                 console.log('sign out successful')
+                navigate("/");
             }).catch(error => console.log(error));
         }
     return (
