@@ -25,6 +25,7 @@ function App() {
   //Create routes for screen navigation
 const router = createBrowserRouter([
   {
+    
     element: <AppLayout />,
     children: [
       {
@@ -82,6 +83,7 @@ createRoot(document.getElementById("root")).render(
 const AppLayout= () => {
   return (
     <>
+    
       <div className="App">
       <Navbar />
       <Outlet />

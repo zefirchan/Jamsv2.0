@@ -4,21 +4,19 @@ import React, {useState} from "react";
 import {Forgotpass} from './Forgotpass';
 import {Link} from "react-router-dom"
 import menuLogo from './img/JAMS_1563X1563.png'
-
-
-
-
-
+import { useNavigate } from "react-router-dom";
 
 export const Login = (props) =>{
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     {/*start app on login screen */}
   const [currentForm, setCurrentForm] = useState('login');
   const toggleForm = (formName) =>{
     setCurrentForm(formName);
   }
+  
     {/* event handler for form entry*/}
     
     const logIn = (e) => {
@@ -26,11 +24,14 @@ export const Login = (props) =>{
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             console.log(userCredential)
+            navigate("/adminhome");
+
         }).catch((error) => {
             console.log(error);
         })
-
+        
     }
+
     //login form
     return(
         
@@ -45,12 +46,7 @@ export const Login = (props) =>{
                 <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="username (your email)" id="email" name="email" />
                 <label htmlFor="password">password</label>
                 <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="******" id="password" name="password" />
-                <Link to="/adminhome">
-                <button type="submit" >Log In</button>
-                </Link>
-                
-                
-                    
+                <button type="submit" >Log In</button>    
             </form>
             {/* switch to password form*/}
             <Link to="/forgotpass">
