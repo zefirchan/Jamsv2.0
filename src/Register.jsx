@@ -4,6 +4,7 @@ import React, {useState} from "react";
 import { auth } from "./firebase";
 import MustContainElement from "./MustContainElement";
 import { Link } from "react-router-dom";
+import menuLogo from './img/JAMS_1563X1563.png'
 
 
  {/* Administrator screen for registering user*/}
@@ -13,6 +14,12 @@ export const Register = (props) =>{
     const [firstname, setFirstname] = useState('');
     const [lastname, setLastname] = useState('');
     const [role, setRole] = useState('');
+    const [address, setAddress] = useState('');
+    const [dob, setDob] = useState('');
+    const [username, setUsername] = useState('');
+
+
+
 
     const [userPassword, setUserPassword] = useState("")
 
@@ -76,36 +83,46 @@ export const Register = (props) =>{
         if (containsUL && containsLL && containsN && containsSC && contains8C ) setAllValid(true)
         else setAllValid(false)
     } 
-
     
     //registration form
     return(
     
-    <div className="auth-form-container">
-            <form className="register-form" onSubmit={registerUser}>
-                <h2>Register new User</h2>
-                <label htmlFor="firstname">first name</label>
-                <input value={firstname} onChange={(e) => setFirstname(e.target.value)} name="firstname" id="firstname" placeholder="enter first name..."/>
-                <label htmlFor="lastname">last name</label>
-                <input value={lastname} onChange={(e) => setLastname(e.target.value)} name="lastname" id="lastname" placeholder="enter last name..."/>
-                <label htmlFor="role">role</label>
-                <input value={role} onChange={(e) => setRole(e.target.value)} name="role" id="role" placeholder="user's role..."/>
-                <label htmlFor="email">email</label>
-                <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="youremail@mail.com..." id="email" name="email"/>
-                
-                <label htmlFor="userPassword">password</label>
-                <input value={userPassword} onChange={(e) => setUserPassword(e.target.value)}type="password" placeholder="*******" id="password" name="password" onKeyUp={validatePassword}/>
-                <Link to="/">
-                    <button type="submit">Register Account</button>
-                </Link>
-                
-            </form>
-            <div className="must-container cfb">
+        <><div className="big-logo">
+            <img src={menuLogo} alt="logo" />
+        </div>
         
-                {MustContainData.map(data=> <MustContainElement data={data}/>)}
-            </div>
+        <div className="auth-form-container">
+                <Link to="/">
+                    <button className="link-btn">login</button>
+                </Link>
+                <form className="register-form" onSubmit={registerUser}>
+                    <h2>Register new User</h2>
+                    <label htmlFor="firstname">first name</label>
+                    <input value={firstname} onChange={(e) => setFirstname(e.target.value)} name="firstname" id="firstname" placeholder="enter first name..." />
+                    <label htmlFor="lastname">last name</label>
+                    <input value={lastname} onChange={(e) => setLastname(e.target.value)} name="lastname" id="lastname" placeholder="enter last name..." />
+                    <label htmlFor="role">role</label>
+                    <input value={role} onChange={(e) => setRole(e.target.value)} name="role" id="role" placeholder="user's role..." />
+                    <label htmlFor="email">email</label>
+                    <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="youremail@mail.com..." id="email" name="email" />
+                    <label htmlFor="address">address</label>
+                    <input value={address} onChange={(e) => setAddress(e.target.value)} type="address" placeholder="enter address" id="address" name="address" />
+                    <label htmlFor="dob">date of birth</label>
+                    <input value={dob} onChange={(e) => setDob(e.target.value)} type="dob" placeholder="mm/dd/yy" id="dob" name="dob" />
+                    <label htmlFor="userPassword">password</label>
+                    <input value={userPassword} onChange={(e) => setUserPassword(e.target.value)} type="password" placeholder="*******" id="password" name="password" onKeyUp={validatePassword} />
+                    
+                        <button type="submit">Register New User</button>
+                    
 
-    </div>
+                </form>
+                <div className="must-container cfb">
+
+                    {MustContainData.map(data => <MustContainElement data={data} />)}
+                </div>
+
+                
+            </div></>
 
     );
 }

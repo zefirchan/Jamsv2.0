@@ -18,6 +18,24 @@
   
 }
 
+.big-logo {
+  display: flex;
+  width: 200px;
+  height: 200px;
+  margin-right: 10rem;
+
+  
+}
+
+.card {
+  padding: 2rem;
+  border: 1px solid #B4FEE7;
+  border-radius: 10px;
+  margin: 0.5rem;
+  box-shadow: 3px 5px 5px grey;
+  
+}
+
 @media screen and (min-width: 600px){
   .auth-form-container {
     padding: 5rem;
