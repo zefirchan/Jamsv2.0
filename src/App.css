@@ -1,4 +1,5 @@
-
+@import "../node_modules/@syncfusion/ej2-base/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-buttons/styles/material.css";
 
 .App {
   text-align: center;
@@ -12,21 +13,37 @@
 
 .auth-form-container, .login-form, .register-form, .forgotpass-form {
   
-  
   display: flex;
   flex-direction: column;
   
 }
+
+.aa-form-container, .addaccount-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.view-accounts-container {
+  display: flex;
+  flex-direction: row;
+}
+
 
 .big-logo {
   display: flex;
   width: 200px;
   height: 200px;
   margin-right: 10rem;
-
   
 }
 
+.dashboard-button{
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color:rgb(255, 255, 255);
+  transition: 0.3s ease-in-out;
+}
 .card {
   padding: 2rem;
   border: 1px solid #B4FEE7;

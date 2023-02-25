@@ -49,7 +49,7 @@ const router = createBrowserRouter([
     element: <AddAccount />
   },
   {
-    path: "adminhome/editaccount",
+    path: "adminhome/viewaccounts/editaccount",
     element: <EditAccount />
   },
   {
@@ -83,7 +83,6 @@ createRoot(document.getElementById("root")).render(
 const AppLayout= () => {
   return (
     <>
-    
       <div className="App">
       <Navbar />
       <Outlet />

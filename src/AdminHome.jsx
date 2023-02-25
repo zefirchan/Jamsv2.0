@@ -17,25 +17,11 @@ export const AdminHome = (props) => {
                     <ImPlus size={50}/>
                 </div>
             </Link>
-            <Link to="editaccount">
-                <div className = "card">
-                    <h3>Edit<br></br> Account</h3>
-                    <br></br>
-                    <IoIosCreate size={50}/>
-                </div>
-            </Link>
             <Link to="viewaccounts">
                 <div className = "card">
                     <h3>View<br></br> Accounts</h3>
                     <br></br>
                     <ImEye size={50}/>
-                </div>
-            </Link>
-            <Link to="deactivateaccount">
-                <div className = "card">
-                    <h3>Deactivate<br></br> Account</h3>
-                    <br></br>
-                    <ImWarning size={50}/>
                 </div>
             </Link>
         </>
