@@ -16,11 +16,11 @@ nav{
   
   }
   
+
   #navbar{
     display: flex;
     align-items: center;
     justify-content: center;
-    
   
   }
   
@@ -31,7 +31,7 @@ nav{
     
   }
   
-  #navbar li a{
+  #navbar li{
     text-decoration: none;
     font-size: 1.3rem;
     font-weight: 600;
@@ -71,9 +71,9 @@ nav{
     border-radius: 10px;
     color: #7439db;
   }
-  
+
   .link-btn {
     background: none;
     color: white;
-    text-decoration: underline;
   }
+  
