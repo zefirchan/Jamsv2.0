@@ -1,4 +1,4 @@
-class account {
+class useraccount {
         constructor (props) {
             const {firstName, lastName, address, dateOfBirth,accCreateDate, activated, suspended, pwExpired,suspensionStart,suspensionEnd,prevPass,userID,PW} = props
             Object.assign(this,props)
@@ -25,7 +25,7 @@ class account {
        
 }
 
-const testAdmin = new account ({
+const testAdmin = new useraccount ({
     
     firstName: 'Stephan',
     lastName: 'Mah',

@@ -3,6 +3,7 @@ import { ImPlus } from 'react-icons/im';
 import { ImEye } from 'react-icons/im';
 import { ImWarning } from 'react-icons/im';
 import { Link } from 'react-router-dom';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 
 
@@ -26,9 +27,11 @@ export const AdminHome = (props) => {
             </Link>
             <Link to="viewusers">
                 <div className = "card">
+                    <h3>View</h3>
+                    
                     <h3>Users</h3>
                     <br></br>
-                    <ImEye size={50}/>
+                    <AccountCircleIcon sx={{ fontSize: 50 }}/>
                 </div>
             </Link>
         </>

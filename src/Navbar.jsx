@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import menuLogo from './img/JAMS_313X313.png'
 import {AuthDetails } from './AuthDetails';
-import {Link} from "react-router-dom"
+import {Link, NavLink} from "react-router-dom"
+
 
 import "./NavbarStyles.css"
 
@@ -13,14 +14,17 @@ export function Navbar(){
     
 
     return (
-        <>
-        <nav className="navbar">
-            
-            <div>
-            <AuthDetails />
-            </div>
-        </nav>
-        </>
+        <nav>
+        
+        <div>
+            <ul id="navbar">
+                <li><Link  to="adminhome"><a>Dashboard</a></Link></li>
+                <li><Link to="adminhome/viewaccounts"><a>View Accounts</a></Link></li>
+                <li><Link to="adminhome/addaccount"><a>Add Accounts</a></Link></li>
+                <li className="authdetails">< AuthDetails/></li>  {/*sign in info displayed in */}
+            </ul>
+        </div>
+    </nav>
     );
 }
 

@@ -44,10 +44,20 @@ export const ViewAccounts = () =>{
                         <div><p>{account.number}</p></div>
                         <h3>credit</h3>
                         <div><p>{account.credit}</p></div>
-                        <Button  onClick={() => {deactivateAccount(account.id)}}><h4>deactivate</h4><ImWarning size={30}/></Button>
+                        <h3>Category </h3>
+                        <div><p>{account.category}</p> </div>
+                        <h3>Debit </h3>
+                        <div><p>{account.debit}</p></div>
+                        <h3>InitialBalance</h3>
+                        <div><p>{account.initialBalance}</p></div>
+                        <h3>Description</h3>
+                        <div> <p>{account.description}</p></div>
+                        <Link onClick={() => {deactivateAccount(account.id)}} className="va-button">
+                            <a><h4>deactivate</h4><ImWarning size={30}/></a>
+                        </Link>
                         <br />
-                        <Link to="editaccount">
-                            <Button ><h4>Edit Account</h4><IoIosCreate size={30}/></Button>   
+                        <Link to="editaccount" className="va-button">
+                            <li><a><h6>Edit Account</h6><IoIosCreate size={30}/></a></li>
                         </Link>
                         
                         
@@ -65,9 +75,6 @@ export const ViewAccounts = () =>{
 
 //   To Add
 
-//   <div><h1>:Category: {account.category}</h1></div>
-//   <div><h1>:Debit: {account.debit}</h1></div>
-//   <div><h1>:InitialBalance: {account.initialBalance}</h1></div>
-//   <div><h1>:Description: {account.description}</h1></div>
+
 
 //
