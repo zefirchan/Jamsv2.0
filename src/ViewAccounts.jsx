@@ -8,7 +8,6 @@ import { ImWarning } from 'react-icons/im';
 import Button from '@mui/material/Button';
 
 
-
 export const ViewAccounts = () =>{
 
 
