@@ -24,6 +24,13 @@ export const AdminHome = (props) => {
                     <ImEye size={50}/>
                 </div>
             </Link>
+            <Link to="viewusers">
+                <div className = "card">
+                    <h3>Users</h3>
+                    <br></br>
+                    <ImEye size={50}/>
+                </div>
+            </Link>
         </>
         
         );
