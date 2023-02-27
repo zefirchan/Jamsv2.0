@@ -1,6 +1,5 @@
 import { createBrowserRouter, createRoutesFromElements, Route, Link, Outlet, RouterProvider } from 'react-router-dom';
 import { createRoot } from "react-dom/client";
-
 import './App.css';
 import './NavbarStyles.css'
 import { Login } from './Login';
@@ -19,7 +18,6 @@ import {DeactivateAccount} from './DeactivateAccount'
 
 
 function App() {
-
 
 
   //Create routes for screen navigation

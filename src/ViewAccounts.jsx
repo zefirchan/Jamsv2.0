@@ -5,7 +5,7 @@ import { IoIosCreate } from 'react-icons/io';
 import {Link} from "react-router-dom"
 import { async } from "@firebase/util";
 import { ImWarning } from 'react-icons/im';
-import Button from '@mui/material/Button';
+import {EditAccount} from './EditAccount';
 
 
 export const ViewAccounts = () =>{
@@ -13,6 +13,7 @@ export const ViewAccounts = () =>{
 
     const [accounts, setAccounts] = useState([]);
     const accountsCollectionRef = collection(db,  "accounts");
+    const [editbox, seteditbox] = useState(false);
 
     const deactivateAccount = async (id) => {
         const accountDoc = doc(db, "accounts", id);
@@ -56,9 +57,10 @@ export const ViewAccounts = () =>{
                             <a><h4>deactivate</h4><ImWarning size={30}/></a>
                         </Link>
                         <br />
-                        <Link to="editaccount" className="va-button">
+                        <Link onClick={()=> seteditbox(true)} className="va-button">
                             <li><a><h6>Edit Account</h6><IoIosCreate size={30}/></a></li>
                         </Link>
+                        {editbox === true && <EditAccount account = {account} seteditbox={seteditbox}/>}
                         
                         
                     </div>
@@ -72,9 +74,3 @@ export const ViewAccounts = () =>{
 
     )
 }
-
-//   To Add
-
-
-
-//
