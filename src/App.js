@@ -1,93 +1,60 @@
-import { createBrowserRouter, createRoutesFromElements, Route, Link, Outlet, RouterProvider } from 'react-router-dom';
-import { createRoot } from "react-dom/client";
+import React, {useState} from "react";
+
+
 import './App.css';
 import './NavbarStyles.css'
 import { Login } from './Login';
+import {Forgotpass} from './Forgotpass';
 import { Register } from './Register';
-import {Navbar} from './Navbar';
-import {Root} from './root';
-import { Forgotpass } from './Forgotpass';
-import {AdminHome} from './AdminHome';
-import ProtectedRoutes from './ProtectedRoutes';
-import {AddAccount} from './AddAccount'
-import {EditAccount} from './EditAccount'
-import {ViewAccounts} from './ViewAccounts'
-import {DeactivateAccount} from './DeactivateAccount'
 
+import {Navbar} from './Navbar';
 
 
 
 function App() {
+  const [failedAttempts, setFailedAttempts] = useState(0);
+  const [currentForm, setCurrentForm] = useState('login');
+  const [passwordHistory, setPasswordHistory] = useState([]);
 
-
-  //Create routes for screen navigation
-const router = createBrowserRouter([
-  {
-    
-    element: <AppLayout />,
-    children: [
-      {
-    path: "register",
-    element: <Register />,
-  },
-  {
-    path: "/",
-    element: <Login />,
-  },
-  {
-    path: "forgotpass",
-    element: <Forgotpass />
-  },
-  {
-    path: "adminhome",
-    element: <AdminHome />
-  },
-  {
-    path: "adminhome/addaccount",
-    element: <AddAccount />
-  },
-  {
-    path: "adminhome/viewaccounts/editaccount",
-    element: <EditAccount />
-  },
-  {
-    path: "adminhome/viewaccounts",
-    element: <ViewAccounts />
-  },
-  {
-    path: "adminhome/deactivateaccount",
-    element: <DeactivateAccount />
-  },
-
+  function handleLogin(event) {
+    event.preventDefault();
+    const password = event.target.password.value;
+    if (password === "correctPassword") {
+      // Login successful
+    } else {
+      // Login failed
+      setFailedAttempts(failedAttempts + 1);
+      if (failedAttempts === 2) {
+        alert("Your account has been suspended.");
+        event.target.password.disabled = true;
+      }
+    }
+  }
+  function handleResetPassword(event) {
+    event.preventDefault();
+    const newPassword = event.target.newPassword.value;
+    if (passwordHistory.includes(newPassword)) {
+      alert("You cannot use an old password.");
+    } else {
+      setPasswordHistory([...passwordHistory, newPassword]);
+      alert("Password changed successfully.");
+    }
+  }
+  const toggleForm = (formName) => {
+    setCurrentForm(formName);
+  }
   
-    ]
-  },
- 
-  
-  
-]);
-
-createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router} />
-);
   return (
-      
-      <div className="App">
-       <RouterProvider router={router} />
-      </div>
-
+    <div className="App">
+      <Navbar/>
+      {currentForm === "login" ? (
+        <Login onFormSwitch={toggleForm} handleLogin={handleLogin} />
+      ) : (
+        <Forgotpass onFormSwitch={toggleForm} />
+      )}
+      <Register/>
+    </div>
   );
-}
-const AppLayout= () => {
-  return (
-    <>
-      <div className="App">
-      <Navbar />
-      <Outlet />
-      </div>
-      
-    </>
-  )
 }
 
 export default App;
